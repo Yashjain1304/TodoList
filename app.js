@@ -199,7 +199,10 @@ app.get("/:userChoice", function (req, res) {
 
 });
 
-
-app.listen(5000, function () {
+let port = process.env.PORT
+if (port == null || port == "") {
+  port = 5000;
+}
+app.listen(port || 5000, function () {
   console.log("server establish at port 5000");
 });
